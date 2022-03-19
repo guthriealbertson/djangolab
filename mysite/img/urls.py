@@ -3,6 +3,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from .views import *
   
+#comment
 urlpatterns = [
     path('', avatarView, name = ''),
     path('success/', success, name = 'success'),
