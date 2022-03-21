@@ -6,7 +6,7 @@ from .filters import *
 
 class photomodel(models.Model):
     name = models.CharField(max_length=50)
-    avatar = models.ImageField()
+    photo = models.ImageField()
     filtertype = models.CharField(max_length=50)
     
     def save(self):
@@ -14,12 +14,12 @@ class photomodel(models.Model):
 
         if self.filtertype == 'blur':
             temp = blur(self)
-            self.avatar = File(temp, self.name)
+            self.photo = File(temp, self.name)
         if self.filtertype == 'gray':
             temp = gray(self)
-            self.avatar = File(temp, self.name)
+            self.photo = File(temp, self.name)
         if self.filtertype == 'poster':
             temp = poster(self)
-            self.avatar = File(temp, self.name)
+            self.photo = File(temp, self.name)
         
         super().save()

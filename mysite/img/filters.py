@@ -3,7 +3,7 @@ from django.core.files import File
 from PIL import Image, ImageOps,ImageFilter
 
 def blur(image):
-    im = Image.open(image.avatar)
+    im = Image.open(image.photo)
     im = im.filter(ImageFilter.BoxBlur(radius=10))
     byte = BytesIO() 
     im.save(byte, 'PNG', quality=85) 
@@ -11,7 +11,7 @@ def blur(image):
     return temp
 
 def gray(image):
-    im = Image.open(image.avatar)
+    im = Image.open(image.photo)
     im = ImageOps.grayscale(im)
     byte = BytesIO()
     im.save(byte, 'PNG', quality=85)
@@ -19,7 +19,7 @@ def gray(image):
     return temp
 
 def poster(image):
-    im = Image.open(image.avatar)
+    im = Image.open(image.photo)
     im = ImageOps.posterize(im,3)
     byte = BytesIO() 
     im.save(byte, 'PNG', quality=85) 

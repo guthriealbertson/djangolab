@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import *
   
 #Create your views here
-def avatarView(request):
+def photoView(request):
   
     if request.method == 'POST':
         form = photoform(request.POST, request.FILES)
