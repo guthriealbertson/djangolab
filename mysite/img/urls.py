@@ -5,7 +5,6 @@ from .views import *
   
 urlpatterns = [
     path('', avatarView, name = ''),
-    path('success/', success, name = 'success'),
     path('display/', display, name = 'display'),
 ]
 

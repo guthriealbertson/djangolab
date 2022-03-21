@@ -12,14 +12,9 @@ def avatarView(request):
             return redirect('display')
     else:
         form = photoform()
-    return render(request, 'studentform.html', {'form' : form})
+    return render(request, 'up.html', {'form' : form})
   
-  
-def success(request):
-    return HttpResponse(' upload successful')
-
-
 def display(request):
     if request.method == 'GET':
-        Hotels = photomodel.objects.all() 
-        return render(request, 'image_display.html', {'hotel_images' : Hotels})
+        Pics = photomodel.objects.all() 
+        return render(request, 'image_display.html', {'images' : Pics})
