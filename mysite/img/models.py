@@ -2,7 +2,6 @@ from django.db import models
 from django.core.files import File
 from .filters import *
 
-
 # Create your models here.
 
 class photomodel(models.Model):
@@ -11,15 +10,16 @@ class photomodel(models.Model):
     filtertype = models.CharField(max_length=50)
     
     def save(self):
-        
+        self.name += '.png'
+
         if self.filtertype == 'blur':
-            thumbnail = blur(self)
-            self.avatar = File(thumbnail, self.name)
+            temp = blur(self)
+            self.avatar = File(temp, self.name)
         if self.filtertype == 'gray':
-            thumbnail = gray(self)
-            self.avatar = File(thumbnail, self.name)
+            temp = gray(self)
+            self.avatar = File(temp, self.name)
         if self.filtertype == 'poster':
-            thumbnail = poster(self)
-            self.avatar = File(thumbnail, self.name)
+            temp = poster(self)
+            self.avatar = File(temp, self.name)
         
         super().save()

@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+<h1>Click on your image to download</h1>
 <body>
     {% for image in images %}
             <div class="col-md-5">
                     {{ image.name }}
                     {{ image.filtertype }}
-                     <img src="{{ image.avatar.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
+                    <a href="{{ image.avatar.url }}" download>
+                     <img src="{{ image.avatar.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 30px;" />
+                    </a>
             </div>
     {% endfor %}
 </body>
