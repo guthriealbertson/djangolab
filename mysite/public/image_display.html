@@ -16,6 +16,7 @@
     {% for hotel in hotel_images %}
             <div class="col-md-4">
                     {{ hotel.name }}
+                    {{ hotel.filtertype }}
                      <img src="{{ hotel.avatar.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
             </div>
     {% endfor %}

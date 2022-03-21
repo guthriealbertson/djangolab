@@ -1,14 +1,12 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .forms import *
-from PIL import Image, ImageOps,ImageFilter
   
 #Create your views here
 def avatarView(request):
   
     if request.method == 'POST':
         form = photoform(request.POST, request.FILES)
-  
         if form.is_valid():
             form.save()
             return redirect('display')
